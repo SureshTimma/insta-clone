@@ -3,7 +3,7 @@ import React from "react";
 const Highlight = (props) => {
   const { highlightData } = props;
   const { image } = highlightData;
-  console.log(highlightData);
+  //   console.log(highlightData);
   return (
     <div className="flex flex-col items-center">
       <img
