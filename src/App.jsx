@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import LoginPage from "./Pages/LoginPage";
+import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 import Posts from "./Pages/Posts";
 import Stories from "./Pages/Stories";
@@ -12,11 +12,8 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<LoginPage />} />
+          <Route path="/" element={<Login />} />
           <Route path="/Home" element={<Home />} />
-          <Route path="/Posts" element={<Posts />} />
-          <Route path="/Stories" element={<Stories />} />
-          <Route path="/Post" element={<Post />} />
           <Route path="/UserProfile" element={<UserProfile />} />
         </Routes>
       </Router>

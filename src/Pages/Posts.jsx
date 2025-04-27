@@ -1,7 +1,7 @@
 import React, { use, useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import Post from "../Components/Post";
-import { ClipLoader } from "react-spinners";
+// import { ClipLoader } from "react-spinners";
 
 const Posts = () => {
   const [postDetails, setPostDetails] = useState([]);
@@ -41,7 +41,7 @@ const Posts = () => {
   // return postDetails.length ? postDetails.map((i) => <Post key={i.post_id} postData={i} />) : <p>no posts to display</p>;
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-wrap px-[12vw] w-full">
       {postDetails.map((i) => (
         <Post key={i.post_id} postData={i} />
       ))}

@@ -1,5 +1,4 @@
 import React from "react";
-import Highlight from "./Highlight";
 
 const Profile = (props) => {
   let { myProfile } = props;
@@ -7,7 +6,7 @@ const Profile = (props) => {
   console.log(myProfile);
   //   console.log(user_name);
   return (
-    <div>
+    <div className="px-[12vw]">
       <div className="flex items-center space-x-8 p-6 bg-white">
         <div>
           <img src={profile_pic} alt="Profile" className="h-32 w-32 rounded-full border-2 border-gray-300" />

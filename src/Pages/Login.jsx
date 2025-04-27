@@ -4,7 +4,7 @@ import illustration from "../assets/illustration.png";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
-const LoginPage = () => {
+const Login = () => {
   // const defaultUserName = "SureshTimma";
   // const defaultPassword = "123";
   const navigate = useNavigate();
@@ -64,15 +64,9 @@ const LoginPage = () => {
             <h1 className="text-xl font-semibold">Insta Share</h1>
           </div>
 
-          <form
-            className="bg-white p-8 rounded shadow-md w-[80%]"
-            onSubmit={loginHandle}
-          >
+          <form className="bg-white p-8 rounded shadow-md w-[80%]" onSubmit={loginHandle}>
             <div className="flex flex-col mb-4">
-              <label
-                htmlFor="username"
-                className="mb-2 text-gray-700 font-semibold"
-              >
+              <label htmlFor="username" className="mb-2 text-gray-700 font-semibold">
                 Username
               </label>
               <input
@@ -86,10 +80,7 @@ const LoginPage = () => {
               />
             </div>
             <div className="flex flex-col mb-6">
-              <label
-                htmlFor="password"
-                className="mb-2 text-gray-700 font-semibold"
-              >
+              <label htmlFor="password" className="mb-2 text-gray-700 font-semibold">
                 Password
               </label>
               <input
@@ -105,10 +96,7 @@ const LoginPage = () => {
             <div>
               <p className="text-red-600">{warning}</p>
             </div>
-            <button
-              type="submit"
-              className="bg-blue-400 text-white font-semibold py-2 px-4 rounded hover:bg-blue-500 w-full"
-            >
+            <button type="submit" className="bg-blue-400 text-white font-semibold py-2 px-4 rounded hover:bg-blue-500 w-full">
               Login
             </button>
           </form>
@@ -118,4 +106,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default Login;

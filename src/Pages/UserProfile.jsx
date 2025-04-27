@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import Profile from "../Components/Profile";
+import Navbar from "../Components/Navbar";
 
 const UserProfile = () => {
   const url = "/api/insta-share/my-profile";
@@ -25,7 +26,12 @@ const UserProfile = () => {
     data();
   }, []);
 
-  return <Profile myProfile={profileDetails} />;
+  return (
+    <div>
+      <Navbar />
+      <Profile myProfile={profileDetails} />;
+    </div>
+  );
 };
 
 export default UserProfile;

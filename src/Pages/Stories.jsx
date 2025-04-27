@@ -28,7 +28,7 @@ const Stories = () => {
   }, []);
 
   return (
-    <div className="flex">
+    <div className="flex px-[12vw]">
       {storyDetails.map((i) => (
         <Story key={i.user_id} postData={i} />
       ))}
