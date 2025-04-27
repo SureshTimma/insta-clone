@@ -1,9 +1,11 @@
-import React, { use, useEffect } from "react";
+import React, { use, useEffect, useState } from "react";
 import Cookies from "js-cookie";
+import Story from "../Components/Story";
 
 const Stories = () => {
+  const [storyDetails, setStoryDetails] = useState([]);
   const jwtToken = Cookies.get("jwt_token");
-  console.log(jwtToken);
+  // console.log(jwtToken);
   const url = "/api/insta-share/stories";
   const options = {
     method: "GET",
@@ -15,15 +17,23 @@ const Stories = () => {
 
   let data = async () => {
     const response = await fetch(url, options);
-    const data = await response.json();
-    console.log(data);
+    const details = await response.json();
+    // console.log(details);
+    setStoryDetails(details.users_stories);
+    // console.log(storyDetails);
   };
 
   useEffect(() => {
     data();
-  });
+  }, []);
 
-  return <div>hello posts</div>;
+  return (
+    <div className="flex">
+      {storyDetails.map((i) => (
+        <Story key={i.user_id} postData={i} />
+      ))}
+    </div>
+  );
 };
 
 export default Stories;

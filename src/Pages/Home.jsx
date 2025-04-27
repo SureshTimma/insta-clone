@@ -1,13 +1,16 @@
 import React from "react";
 import Posts from "./Posts";
+import Navbar from "../Components/Navbar";
+import Stories from "./Stories";
 
-const Home = () => {
+const home = () => {
   return (
     <div>
-      Home
+      <Navbar />
+      <Stories />
       <Posts />
     </div>
   );
 };
 
-export default Home;
+export default home;

@@ -19,9 +19,10 @@ const Posts = () => {
 
   let data = async () => {
     const response = await fetch(url, options);
-    const Details = await response.json();
-    console.log(Details);
-    setPostDetails(Details.posts);
+    const details = await response.json();
+    console.log(details);
+    setPostDetails(details.posts);
+    console.log(postDetails);
     setLoading(false);
   };
 
@@ -29,27 +30,22 @@ const Posts = () => {
     data();
   }, []);
 
-  if (loading) {
-    return (
-      <div
-        className="
-    flex justify-center items-center h-screen"
-      >
-        <ClipLoader
-          size={150}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
-        ;
-      </div>
-    );
-    // Show nothing while loading
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="flex justify-center items-center h-screen">
+  //       <ClipLoader size={150} aria-label="Loading Spinner" data-testid="loader" />;
+  //     </div>
+  //   );
+  // }
 
-  return postDetails.length ? (
-    postDetails.map((i) => <Post key={i.post_id} postData={i} />)
-  ) : (
-    <p>no posts to display</p>
+  // return postDetails.length ? postDetails.map((i) => <Post key={i.post_id} postData={i} />) : <p>no posts to display</p>;
+
+  return (
+    <div className="flex flex-col">
+      {postDetails.map((i) => (
+        <Post key={i.post_id} postData={i} />
+      ))}
+    </div>
   );
 };
 
