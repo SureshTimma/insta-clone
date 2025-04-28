@@ -50,12 +50,13 @@ const Posts = () => {
   // return postDetails.length ? postDetails.map((i) => <Post key={i.post_id} postData={i} />) : <p>no posts to display</p>;
 
   return (
-    <div className="flex pr-[12vw] mt-5">
-      <div className="flex flex-wrap pl-[12vw] w-full">
+    <div className="flex px-[12vw] mt-5">
+      <div className="flex flex-col ">
         {postDetails.map((i) => (
           <Post key={i.post_id} postData={i} />
         ))}
       </div>
+
       <Sidebar />
     </div>
   );

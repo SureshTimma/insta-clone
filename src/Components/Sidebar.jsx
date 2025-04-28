@@ -1,22 +1,24 @@
 import React from "react";
+import ElonMusk from "../assets/elonmusk.png";
+import SteveJobs from "../assets/stevejobs.png";
+import SunderPichai from "../assets/sunderpichai.png";
 
 const Sidebar = () => {
   const suggestions = [
-    { username: "niat.studentgeneral...", name: "Followed by katkurimaruthvik..." },
-    { username: "dornala_amrutha", name: "Followed by venu._gopal..." },
-    { username: "madhav_7_198", name: "Followed by venu._gopal..." },
+    { username: "elonmusk", name: "Followed by techleaders...", image: ElonMusk },
+    { username: "stevejobs", name: "Followed by innovationhub...", image: SteveJobs },
+    { username: "sundarpichai", name: "Followed by siliconvalleyinsights...", image: SunderPichai },
   ];
 
   return (
-    <div className="w-64 p-4 bg-white text-black h-screen">
+    <div className=" p-4 bg-white text-black h-screen">
       <div>
         <div className="flex justify-between items-center mb-4">
           <p className="text-gray-600 font-semibold">Suggested for you</p>
-          <button className="text-blue-500 text-sm font-semibold">See All</button>
         </div>
         {suggestions.map((suggestion, index) => (
           <div key={index} className="flex items-center mb-4">
-            <img src="https://via.placeholder.com/40" alt="Suggestion Avatar" className="w-10 h-10 rounded-full" />
+            <img src={suggestion.image} alt="Suggestion Avatar" className="w-10 h-10 rounded-full fill object-cover" />
             <div className="ml-4">
               <p className="font-bold text-sm">{suggestion.username}</p>
               <p className="text-xs text-gray-600">{suggestion.name}</p>

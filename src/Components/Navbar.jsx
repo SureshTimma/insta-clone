@@ -69,7 +69,7 @@ const Navbar = () => {
         <Link to="/UserProfile" className={`${location.pathname === "/UserProfile" ? "text-blue-500 font-semibold" : "text-gray-800"} "font-medium"`}>
           Profile
         </Link>
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" onClick={logOut}>
+        <button className="bg-blue-500 text-white px-4 py-1.5 rounded-md hover:bg-blue-600" onClick={logOut}>
           Logout
         </button>
       </div>
