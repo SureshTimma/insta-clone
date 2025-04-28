@@ -13,9 +13,9 @@ const SearchResluts = () => {
       <Navbar />
       <div className="flex gap-4 m-4 flex-wrap justify-center">
         {postData.map((i) => {
-          let { profile_pic, user_name, post_details, likes_count, created_at, comments } = i;
+          let { profile_pic, user_name, user_id, post_details, likes_count, created_at, comments } = i;
           return (
-            <div className="flex flex-col w-[30%] h-auto p-4 bg-gray-50 rounded-lg shadow-md ">
+            <div key={user_id} className="flex flex-col w-[30%] h-auto p-4 bg-gray-50 rounded-lg shadow-md ">
               <div className="bg-white flex items-center p-2">
                 <img src={profile_pic} className="h-12 w-12 rounded-full border border-gray-300 mr-3" alt="Profile" />
                 <h1 className="font-semibold text-gray-800 text-lg">{user_name}</h1>

@@ -8,9 +8,7 @@ import searchResults from "../Pages/SearchResluts";
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [searchInput, setSearchInput] = useState("");
-  // const [postDetails, setPostDetails] = useState([]);
-  let url = `https://apis.ccbp.in/insta-share/posts?search=${searchInput}`;
+
   const jwtToken = Cookies.get("jwt_token");
 
   const options = {
@@ -27,25 +25,19 @@ const Navbar = () => {
     navigate("/");
   };
 
-  let searchPosts = async () => {
-    const response = await fetch(url, options);
-    const details = await response.json();
-    // setPostDetails(details.posts);
-    // console.log(postDetails);
-    // console.log(url);
-    navigate("/SearchResults", { state: { postData: details.posts } });
-  };
-
-  // const search = (e) => {
-  //   console.log(e.target.value);
-  // };
-
   const handleSearch = (e) => {
     if (e.key === "Enter") {
-      setSearchInput(e.target.value);
-      // console.log(searchInput);
-      searchPosts();
+      const searchValue = e.target.value.trim();
+      searchPosts(searchValue);
     }
+  };
+
+  let searchPosts = async (searchValue) => {
+    let url = `https://apis.ccbp.in/insta-share/posts?search=${searchValue}`;
+    const response = await fetch(url, options);
+    const details = await response.json();
+    console.log(details);
+    navigate("/SearchResults", { state: { postData: details.posts } });
   };
 
   return (
