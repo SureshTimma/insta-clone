@@ -63,7 +63,7 @@ const Navbar = () => {
       </div>
 
       <div className="flex items-center space-x-6">
-        <Link to="/Home" className={`${location.pathname === "/Home" ? "text-blue-500 font-semibold" : "text-gray-800"} "font-medium"`}>
+        <Link to="/Home" className={`${location.pathname === "/Home" || location.pathname === "/home" ? "text-blue-500 font-semibold" : "text-gray-800"} "font-medium"`}>
           Home
         </Link>
         <Link to="/UserProfile" className={`${location.pathname === "/UserProfile" ? "text-blue-500 font-semibold" : "text-gray-800"} "font-medium"`}>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/logo.png";
 import illustration from "../assets/illustration.png";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,10 @@ const Login = () => {
   // const defaultUserName = "SureshTimma";
   // const defaultPassword = "123";
   const navigate = useNavigate();
+  const jwtToken = Cookies.get("jwt_token");
+  useEffect(() => {
+    jwtToken ? navigate("/home") : console.log("No token found");
+  }, [jwtToken]);
 
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
