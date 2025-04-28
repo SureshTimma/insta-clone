@@ -2,13 +2,14 @@ import React, { use, useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import Post from "../Components/Post";
 import Sidebar from "../Components/Sidebar";
+// import { useNavigate } from "react-router-dom";
 // import { ClipLoader } from "react-spinners";
 
 const Posts = () => {
   const [postDetails, setPostDetails] = useState([]);
   const [loading, setLoading] = useState(true);
   const jwtToken = Cookies.get("jwt_token");
-  console.log(jwtToken);
+  // console.log(jwtToken);
   const url = "/api/insta-share/posts";
   const options = {
     method: "GET",
