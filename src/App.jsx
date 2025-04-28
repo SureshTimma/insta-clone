@@ -6,6 +6,7 @@ import Posts from "./Pages/Posts";
 import Stories from "./Pages/Stories";
 import Post from "./Components/Post";
 import UserProfile from "./Pages/userProfile";
+import SearchResluts from "./Pages/SearchResluts";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/UserProfile" element={<UserProfile />} />
+          <Route path="/SearchResults" element={<SearchResluts />} />
         </Routes>
       </Router>
     </>

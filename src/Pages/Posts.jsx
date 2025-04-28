@@ -23,7 +23,7 @@ const Posts = () => {
     console.log(details);
     setPostDetails(details.posts);
     console.log(postDetails);
-    setLoading(false);
+    // setLoading(false);
   };
 
   useEffect(() => {
