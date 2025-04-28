@@ -29,7 +29,7 @@ const Login = () => {
       method: "POST",
       body: JSON.stringify(userDetails),
       headers: {
-        "Content-Type": "application/json", // Ensure proper headers are set
+        "Content-Type": "application/json",
       },
     };
 
@@ -38,12 +38,10 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok) {
-        // Handle success
-        console.log("Login successful:", data.jwt_token);
-        Cookies.set("jwt_token", data.jwt_token, { expires: 1 }); // Set the JWT token in cookies
-        navigate("/home"); // Navigate to the home page or another route
+        // console.log("Login successful:", data.jwt_token);
+        Cookies.set("jwt_token", data.jwt_token, { expires: 1 });
+        navigate("/home");
       } else {
-        // Handle failure
         setWarning(data.error_msg || "Login failed. Please try again.");
       }
     } catch (error) {
