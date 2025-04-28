@@ -22,9 +22,9 @@ const Posts = () => {
   let data = async () => {
     const response = await fetch(url, options);
     const details = await response.json();
-    console.log(details);
+    // console.log(details);
     setPostDetails(details.posts);
-    console.log(postDetails);
+    // console.log(postDetails);
     // setLoading(false);
   };
 

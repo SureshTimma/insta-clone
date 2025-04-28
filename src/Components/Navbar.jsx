@@ -9,6 +9,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [searchInput, setSearchInput] = useState("");
+  // const [postDetails, setPostDetails] = useState([]);
   let url = `https://apis.ccbp.in/insta-share/posts?search=${searchInput}`;
   const jwtToken = Cookies.get("jwt_token");
 
@@ -27,11 +28,12 @@ const Navbar = () => {
   };
 
   let searchPosts = async () => {
-    const responce = await fetch(url, options);
-    const details = await responce.json();
-    console.log(details);
+    const response = await fetch(url, options);
+    const details = await response.json();
+    // setPostDetails(details.posts);
+    // console.log(postDetails);
     // console.log(url);
-    // navigate("/SearchResults", { state: { postData: details.posts } });
+    navigate("/SearchResults", { state: { postData: details.posts } });
   };
 
   // const search = (e) => {
@@ -41,7 +43,7 @@ const Navbar = () => {
   const handleSearch = (e) => {
     if (e.key === "Enter") {
       setSearchInput(e.target.value);
-      console.log(searchInput);
+      // console.log(searchInput);
       searchPosts();
     }
   };
