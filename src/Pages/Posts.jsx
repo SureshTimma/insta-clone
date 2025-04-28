@@ -18,14 +18,6 @@ const Posts = () => {
     },
   };
 
-  const suggestions = [
-    { username: "niat.studentgeneral...", name: "Followed by katkurimaruthvik..." },
-    { username: "dornala_amrutha", name: "Followed by venu._gopal..." },
-    { username: "madhav_7_198", name: "Followed by venu._gopal..." },
-    { username: "_vivek_reddi__", name: "Followed by venu._gopal..." },
-    { username: "_xai_77x", name: "Followed by venu._gopal..." },
-  ];
-
   let data = async () => {
     const response = await fetch(url, options);
     const details = await response.json();
@@ -50,14 +42,16 @@ const Posts = () => {
   // return postDetails.length ? postDetails.map((i) => <Post key={i.post_id} postData={i} />) : <p>no posts to display</p>;
 
   return (
-    <div className="flex px-[12vw] mt-5">
-      <div className="flex flex-col ">
+    <div className="flex justify-center px-[12vw] mt-5">
+      <div className="flex flex-col w-[60%] ">
         {postDetails.map((i) => (
           <Post key={i.post_id} postData={i} />
         ))}
       </div>
 
-      <Sidebar />
+      <div className="ml-10">
+        <Sidebar />
+      </div>
     </div>
   );
 };
