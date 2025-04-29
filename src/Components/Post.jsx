@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaHeart, FaComment, FaShare } from "react-icons/fa";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 
 const Post = (props) => {
   let { postData } = props;
-  let { profile_pic, user_name, user_id, post_details, likes_count, created_at, comments } = postData;
+  let { profile_pic, user_name, user_id, post_details, post_id, likes_count, created_at, comments } = postData;
 
   let jwtToken = Cookies.get("jwt_token");
-  let url = `https://apis.ccbp.in/insta-share/users/${user_id}`;
+  let url = `/api/insta-share/users/${user_id}`;
+  let likeUrl = `/api/insta-share/posts/${post_id}/like`;
+  const [likeStatus, setLikeStatus] = useState(false);
+  const [likesCount, setLikesCount] = useState(likes_count);
+
   let options = {
     method: "GET",
     headers: {
@@ -17,14 +21,39 @@ const Post = (props) => {
     },
   };
 
+  let likeOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${jwtToken}`,
+    },
+    body: JSON.stringify({ like_status: true }),
+  };
+
   const navigate = useNavigate();
   const openProfile = async () => {
     // Logic to open the user's profile
-    console.log(`Opening profile of ${user_id}`);
+    // console.log(`Opening profile of ${user_id}`);
     let response = await fetch(url, options);
     let userDetails = await response.json();
     // console.log(userDetails);
     navigate("/SearchProfile", { state: { userData: userDetails } });
+  };
+
+  useEffect(() => console.log("hello"), [likeStatus]);
+
+  const handleLike = async () => {
+    if (!likeStatus) {
+      setLikeStatus(true);
+      setLikesCount(likesCount + 1); // Increment the likes count
+      try {
+        let response = await fetch(likeUrl, likeOptions);
+        let likeResponse = await response.json();
+        console.log(likeResponse);
+      } catch (error) {
+        console.error("Error liking the post:", error);
+      }
+    }
   };
 
   return (
@@ -40,12 +69,11 @@ const Post = (props) => {
       </div>
       <div className="p-4">
         <div className="flex space-x-4 text-gray-600">
-          <FaHeart className="text-red-500 cursor-pointer text-xl" />
+          {likeStatus ? <FaHeart className="text-red-500 cursor-pointer text-xl" onClick={handleLike} /> : <FaHeart className="text-gray-500 cursor-pointer text-xl" onClick={handleLike} />}
           <FaComment className="cursor-pointer text-xl" />
           <FaShare className="cursor-pointer text-xl" />
         </div>
-        <p className="font-semibold text-gray-800 mt-2 text-lg">{likes_count} likes</p>
-        <p className="text-gray-800 text-base">{post_details.caption}</p>
+        <p className="font-semibold text-gray-800 mt-2 text-lg">{likesCount} likes</p> <p className="text-gray-800 text-base">{post_details.caption}</p>
         {comments.map((comment, index) => (
           <p key={index} className="text-gray-600 text-sm">
             <span className="font-semibold text-gray-800">{comment.user_name}</span> {comment.comment}
