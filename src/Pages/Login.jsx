@@ -57,10 +57,10 @@ const Login = () => {
   return (
     <div>
       <div className="flex">
-        <div className="w-[60vw] h-screen flex justify-center items-center">
+        <div className="w-[60vw] h-screen hidden md:flex justify-center items-center">
           <img src={illustration} />
         </div>
-        <div className=" w-[40vw] h-screen flex flex-col justify-center items-center">
+        <div className=" w-full md:w-[40vw] h-screen flex flex-col justify-center items-center">
           <div className="flex flex-col items-center">
             <img src={logo} />
             <h1 className="text-xl font-semibold">Insta Share</h1>
