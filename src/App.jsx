@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import UserProfile from "./Pages/userProfile";
 import SearchResluts from "./Pages/SearchResluts";
 import PageNotFound from "./Pages/PageNotFound";
+import SearchProfile from "./Pages/SearchProfile";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/Home" element={<Home />} />
           <Route path="/UserProfile" element={<UserProfile />} />
           <Route path="/SearchResults" element={<SearchResluts />} />
+          <Route path="/SearchProfile" element={<SearchProfile />} />
           <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </Router>

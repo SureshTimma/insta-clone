@@ -42,11 +42,9 @@ const Navbar = () => {
 
   return (
     <nav className="flex items-center justify-between px-[12vw] py-3 mb-5 bg-white shadow">
-      <div className="flex items-center space-x-2">
-        <img src={logo} alt="Logo" className="h-10 w-18" onClick={() => navigate("/")} />
-        <h1 className="text-xl font-semibold text-gray-800" onClick={() => navigate("/")}>
-          Insta Share
-        </h1>
+      <div className="flex items-center space-x-2 cursor-pointer" onClick={() => navigate("/")}>
+        <img src={logo} alt="Logo" className="h-10 w-18" />
+        <h1 className="text-xl font-semibold text-gray-800 ">Insta Share</h1>
       </div>
 
       <div className="flex items-center border border-gray-400 rounded-md px-2 py-1.5">

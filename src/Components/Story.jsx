@@ -4,10 +4,10 @@ const Story = (props) => {
   let { postData } = props;
   let { user_name, story_url } = postData;
   return (
-    <div className="flex w-screen overflow-auto">
-      <div>
+    <div className="flex w-screen">
+      <div className="">
         <img src={story_url} className="h-15 w-15 rounded-full" />
-        <h1 className="text-sm">{user_name}</h1>
+        <h1 className="text-sm ">{user_name}</h1>
       </div>
     </div>
   );
