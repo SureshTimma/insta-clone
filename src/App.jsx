@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
-import UserProfile from "./Pages/userProfile";
+import UserProfile from "./Pages/UserProfile";
 import SearchResluts from "./Pages/SearchResluts";
 import PageNotFound from "./Pages/PageNotFound";
 import SearchProfile from "./Pages/SearchProfile";
