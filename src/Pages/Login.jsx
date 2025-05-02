@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import logo from "../assets/logo.png";
-import illustration from "../assets/illustration.png";
+import illustration from "../assets/Illustration.png";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
