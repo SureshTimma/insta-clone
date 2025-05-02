@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaHeart, FaComment, FaShare } from "react-icons/fa";
+import { FaHeart, FaComment, FaShare, FaBars } from "react-icons/fa";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 
@@ -40,7 +40,7 @@ const Post = (props) => {
     navigate("/SearchProfile", { state: { userData: userDetails } });
   };
 
-  useEffect(() => console.log("hello"), [likeStatus]);
+  // useEffect(() => console.log("hello"), [likeStatus]);
 
   const handleLike = async () => {
     if (!likeStatus) {
@@ -49,7 +49,7 @@ const Post = (props) => {
       try {
         let response = await fetch(likeUrl, likeOptions);
         let likeResponse = await response.json();
-        console.log(likeResponse);
+        // console.log(likeResponse);
       } catch (error) {
         console.error("Error liking the post:", error);
       }

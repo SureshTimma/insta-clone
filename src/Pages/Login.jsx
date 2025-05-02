@@ -40,6 +40,7 @@ const Login = () => {
     try {
       const response = await fetch(url, options);
       const data = await response.json();
+      console.log(data);
 
       if (response.ok) {
         // console.log("Login successful:", data.jwt_token);

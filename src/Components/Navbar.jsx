@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import searchResults from "../Pages/SearchResluts";
+import { FaBars } from "react-icons/fa";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -47,7 +48,7 @@ const Navbar = () => {
         <h1 className="text-xl font-semibold text-gray-800 ">Insta Share</h1>
       </div>
 
-      <div className="flex items-center border border-gray-400 rounded-md px-2 py-1.5">
+      <div className="hidden md:flex items-center border border-gray-400 rounded-md px-2 py-1.5">
         <input type="text" placeholder="Search Post" className="outline-none text-sm text-gray-600 w-64" onKeyDown={handleSearch} />
         <button className="text-gray-500">
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="h-5 w-5">
@@ -56,7 +57,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      <div className="flex items-center space-x-6">
+      <div className="hidden md:flex items-center space-x-6 ">
         <Link to="/Home" className={`${location.pathname === "/Home" || location.pathname === "/home" ? "text-blue-500 font-semibold" : "text-gray-800"} "font-medium"`}>
           Home
         </Link>
@@ -67,6 +68,8 @@ const Navbar = () => {
           Logout
         </button>
       </div>
+
+      <FaBars className="md:hidden" size={30} />
     </nav>
   );
 };
